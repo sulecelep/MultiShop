@@ -354,3 +354,24 @@ host: 1440
 Portainer'da Oluşturulan DB: IdentityDb
 SA Password: 123456aA*
 host: 1433
+
+
+##  IdentityServer4 Framework Nedir?
+**IdentityServer4, OAuth 2.0 (Authorization) ve OpenId Connect (Authentication) protokollerini implement eden , uygulayan bir frameworktür.**
+* OAuth 2.0 protokolü bizi kullanıcının bilgilerini direk almadan güvenli bir şekilde bir kullanıcı yerine ilgili sitelerden data almamıza veya data göndermemize imkan sağlıyor.
+* OpenID Connect protokolü kullanıcı ile ilgili işlemlerden sorumlu iken, OAuth 2.0 protokolü yetkilendirme işlemleri ile ilgili sorumludur. Bu iki protokol birbirini tamamlayan protokoldür.
+* IdentityServer4 bu iki protokolü içerisinde barındırarak iş yükünü minimuma indiren bir frameworktür.
+* IdentityServer servisinde her client için hangi apilere erişebilir hangi apide hangi metotlara erişebilir, okuma yazma güncelleme gibi hangi Authentication işlemlerinin yapılacağı bilgisini kayıt ediyoruz. Client Önce Identity’e istek atar. Identity Userın Aouthentication bilgilerini de barındırdığı bir token döndürür. Bu token ile client api lere istek atar. Bu sayede 3. parti uygulamaların Api lerimize erişim izni engellenmiş olur.
+
+**IdentityServer4 Kurulumu**
+* identityserver4 cli kurulumu
+````cmd
+dotnet new -i identityserver4.templates
+````
+
+* Kurulacağı klasörün dosya yolu (klasör .sln ile aynı dizinde olmalı)
+````cmd
+ cd C:\Users\username\Desktop\MicroserviceProject\IdentityServer
+````
+
+* dotnet run /seed yes or no diye seçenek sunuyor biz ApplicationUser'ı customize edeceğimiz için data eklemesini istemedik ve n diyerek reddetmiş olduk.
